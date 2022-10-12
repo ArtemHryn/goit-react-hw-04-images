@@ -14,6 +14,9 @@ export class App extends Component {
   };
 
   async componentDidUpdate(_, prevState) {
+    if (!this.state.isLoading) {
+      return;
+    }
     try {
       const images = await getImagesViaApi({
         query: this.state.query,
@@ -30,7 +33,9 @@ export class App extends Component {
       }
     } catch (error) {
       console.log('error');
-    } 
+    } finally {
+      this.setState({ isLoading: false });
+    }
   }
   onSearchSubmit = query => {
     this.setState({ page: 1, query, images: [], isLoading: true });
