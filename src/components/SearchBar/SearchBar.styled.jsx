@@ -9,11 +9,11 @@ export const SearchBarHeader = styled.header`
   justify-content: center;
   align-items: center;
   min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #fff;
+  padding-right: ${p => p.theme.space[6]};
+  padding-left: ${p => p.theme.space[6]};
+  padding-top: ${p => p.theme.space[5]};
+  padding-bottom: ${p => p.theme.space[5]};
+  color: ${p => p.theme.colors.white};
   background-color: #3f51b5;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
@@ -23,9 +23,9 @@ export const SearchForm = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 600px;
+  max-width: ${p => p.theme.sizes.searchForm};
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: ${p => p.theme.radii.searchForm};
   overflow: hidden;
 `;
 
@@ -59,13 +59,13 @@ export const SearchBarInput = styled.input`
   display: inline-block;
   width: 100%;
   font: inherit;
-  font-size: 20px;
+  font-size: ${p => p.theme.fontSizes.ml};
   border: none;
   outline: none;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: ${p => p.theme.space[2]};
+  padding-right: ${p => p.theme.space[2]};
   :placeholder {
     font: inherit;
-    font-size: 18px;
+    font-size: ${p => p.theme.fontSizes.m};
   }
 `;

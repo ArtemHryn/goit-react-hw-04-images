@@ -1,12 +1,10 @@
 export const theme = {
   colors: {
+    white: '#fff',
     stats: '#000',
-    secondary: '#828487',
-    primary: '#dee0e3',
-    btnHover: '#19D3EC',
-    deleteBtn: '#FF0000',
+    btnHover: '#303f9f',
   },
-  space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
+  space: [0, 2, 4, 8, 16, 12, 24, 32],
   fonts: {
     main: 'Serif, sans-serif',
     monospace: 'Menlo, monospace',
@@ -15,12 +13,14 @@ export const theme = {
   fontSizes: {
     xs: '12px',
     s: '14px',
-    m: '16px',
+    m: '18px',
+    ml: '20px',
     l: '32px',
     xl: '64px',
   },
   fontWeights: {
     normal: 400,
+    middle: 500,
     bold: 700,
   },
   borders: {
@@ -28,12 +28,13 @@ export const theme = {
     normal: '1px solid',
   },
   radii: {
-    none: '0',
-    normal: '4px',
+    normal: '2px',
+    searchForm: '3px',
     round: '50%',
   },
   sizes: {
-    input: '200px',
-    button: '120px',
+    minButton: '180px',
+    imageItem: '260px',
+    searchForm: '600px',
   },
 };
