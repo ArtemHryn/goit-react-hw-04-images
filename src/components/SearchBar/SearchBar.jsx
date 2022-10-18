@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { FcSearch } from 'react-icons/fc';
 import {
   SearchBarHeader,
@@ -8,37 +8,37 @@ import {
   SearchBarInput,
 } from './SearchBar.styled';
 
-export class SearchBar extends Component {
-  state = {
-    search: '',
-  };
-  onChange = e => {
-    this.setState({ search: e.currentTarget.value.toLowerCase() });
-  };
-  onFormSubmit = e => {
-    e.preventDefault();
-      this.props.onSubmit(this.state.search);
-      this.setState({search: ''})
-  };
-  render() {
-    return (
-      <SearchBarHeader>
-        <SearchForm onSubmit={this.onFormSubmit}>
-          <SearchFormButton type="submit">
-            <FcSearch style={{ width: 30, height: 30 }} />
-            <SearchFormButtonLabel>Search</SearchFormButtonLabel>
-          </SearchFormButton>
+export const SearchBar = ({ onSubmit }) => {
+  const [search, setSearch] = useState('');
 
-          <SearchBarInput
-            type="text"
-            autocomplete="off"
-            autoFocus
-            placeholder="Search images and photos"
-            value={this.state.search}
-            onChange={this.onChange}
-          />
-        </SearchForm>
-      </SearchBarHeader>
-    );
-  }
-}
+  const onChange = e => {
+    setSearch(e.currentTarget.value.toLowerCase());
+  };
+
+  const onFormSubmit = e => {
+    e.preventDefault();
+    onSubmit(search);
+    setSearch('');
+  };
+
+  return (
+    <SearchBarHeader>
+      <SearchForm onSubmit={onFormSubmit}>
+        <SearchFormButton type="submit">
+          <FcSearch style={{ width: 30, height: 30 }} />
+          <SearchFormButtonLabel>Search</SearchFormButtonLabel>
+        </SearchFormButton>
+
+        <SearchBarInput
+          type="text"
+          autocomplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+          value={search}
+          onChange={onChange}
+        />
+      </SearchForm>
+    </SearchBarHeader>
+  );
+};
+
